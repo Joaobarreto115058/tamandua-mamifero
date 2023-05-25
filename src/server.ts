@@ -14,8 +14,8 @@ server.register(cors, {
     //opções
 })
 
-server.post('/signup', async(request : any, reply: any) => {
-    const tamandua = await prisma.puma.create({
+server.post('/cadastro', async(request : any, reply: any) => {
+    const tamandua = await prisma.tamandua.create({
         data: {
             nome: request.body.nome, 
             caracteristica: request.body.caracteristica,
@@ -23,9 +23,37 @@ server.post('/signup', async(request : any, reply: any) => {
             idade: request.body.idade
         }
       })
-    
     return reply.status(201).send(tamandua);
 });
+
+server.get('/buscar', async(request: any, reply:any) => {
+    const tamandua = await prisma.tamandua.findMany()
+
+    return tamandua;
+})
+
+server.put('/update', async(request: any, reply: any) =>{
+    const nome = await prisma.tamandua.update({
+        where: {
+            nome: request.body.nome
+        },
+        data: {
+            nome: request.body.nome,
+            caracteristica: request.body.caracteristica,
+            alimentado: request.body.alimentado,
+            idade: request.body.idade
+        }
+    })
+})
+
+server.delete('/delete/:IdAnimal', async(request: any, reply: any) =>{
+    const tamandua = await prisma.tamandua.delete({
+        where: {
+            nome: request.body.nome
+        }
+    })
+    return "animal deletado";
+}) 
 
 server.listen({ port }, (error, address) => {
     if (error) {
