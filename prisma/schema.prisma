@@ -12,7 +12,7 @@ datasource db {
 
 model tamandua{
   nome String @id
-  caracteristicay String
+  caracteristica String
   alimentado Boolean
   idade Int @default(0)
 }
