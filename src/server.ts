@@ -14,6 +14,19 @@ server.register(cors, {
     //opções
 })
 
+server.post('/signup', async(request : any, reply: any) => {
+    const tamandua = await prisma.puma.create({
+        data: {
+            nome: request.body.nome, 
+            caracteristica: request.body.caracteristica,
+            alimentado: request.body.alimentado,
+            idade: request.body.idade
+        }
+      })
+    
+    return reply.status(201).send(tamandua);
+});
+
 server.listen({ port }, (error, address) => {
     if (error) {
         console.error(error);

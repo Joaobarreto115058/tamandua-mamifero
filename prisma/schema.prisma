@@ -12,7 +12,7 @@ datasource db {
 
 model tamandua{
   nome String @id
-  familia String
-  vacina Boolean
+  caracteristicay String
+  alimentado Boolean
   idade Int @default(0)
 }
