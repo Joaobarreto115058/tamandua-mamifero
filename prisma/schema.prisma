@@ -10,9 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model tamandua{
+model tamandua {
   nome String @id
-  caracteristica String
+  caracteristicay String
   alimentado Boolean
   idade Int @default(0)
 }

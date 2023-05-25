@@ -17,10 +17,10 @@ server.register(cors, {
 server.post('/cadastro', async(request : any, reply: any) => {
     const tamandua = await prisma.tamandua.create({
         data: {
-            nome: request.body.nome, 
-            caracteristica: request.body.caracteristica,
-            alimentado: request.body.alimentado,
-            idade: request.body.idade
+          nome: request.body.nome,
+          caracteristicay: request.body.caracteristica,
+          alimentado: request.body.alimentado,
+          idade: request.body.idade
         }
       })
     return reply.status(201).send(tamandua);
@@ -39,7 +39,7 @@ server.put('/update', async(request: any, reply: any) =>{
         },
         data: {
             nome: request.body.nome,
-            caracteristica: request.body.caracteristica,
+            caracteristicay: request.body.caracteristica,
             alimentado: request.body.alimentado,
             idade: request.body.idade
         }
