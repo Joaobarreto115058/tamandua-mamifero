@@ -18,7 +18,7 @@ server.post('/cadastro', async (request, reply) => {
     const tamandua = await prisma.tamandua.create({
         data: {
             nome: request.body.nome,
-            caracteristica: request.body.caracteristica,
+            caracteristicay: request.body.caracteristicay,
             alimentado: request.body.alimentado,
             idade: request.body.idade
         }
@@ -36,7 +36,7 @@ server.put('/update', async (request, reply) => {
         },
         data: {
             nome: request.body.nome,
-            caracteristica: request.body.caracteristica,
+            caracteristicay: request.body.caracteristicay,
             alimentado: request.body.alimentado,
             idade: request.body.idade
         }
